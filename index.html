@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>مطعم كاندل | قائمة فاخرة</title>
+  <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="main.js" defer></script>
+  <meta name="description" content="قائمة طعام فاخرة بتصميم أنيق وحديث.">
+
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand">
+<div class="logo">
+  <img src="images/logo.png" alt="شعار مطعم كاندل" style="width:100%; height:100%; border-radius:10px; object-fit:cover;">
+</div>
+        <div>مطعم <span style="color:var(--gold2)">كاندل</span></div>
+      </div>
+      <div class="pill theme-toggle" id="themeToggle" title="تبديل النمط (أسود/وردي)">🌓 تبديل النمط</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <h1 class="headline">تجربة طعام فاخرة… تُحاكي الذوق الرفيع</h1>
+          <p class="subhead">قائمة مُختارة بعناية من الأطباق الشرقية والعالمية، مقدّمة بتصميم أنيق ومتجاوب مع جميع الأجهزة.</p>
+          <div class="cta">
+            <a class="btn gold" href="#menu">استكشفي القائمة</a>
+            <a class="btn" href="#contact">احجزي الآن</a>
+          </div>
+        </div>
+        <div class="hero-card" aria-label="بطاقة ترويجية">
+          <div class="hc-img" role="img" aria-label="صورة ترويجية للأطباق"></div>
+          <div class="hc-content">
+            <div>
+              <div class="title">عرض اليوم</div>
+              <div class="desc">اطلب واحد برغر واحصل على ثانية مجانا</div>
+            </div>
+            <div class="row">
+              <span class="badge">خصم 20%</span>
+              <span class="price">₪ 59</span>
+            </div>
+            <button class="btn gold" onclick="toast('تمت إضافة العرض إلى الطلب')">أضف للطلب</button>
+            <small style="color:var(--muted)">* العرض متاح حتى 31 أغسطس</small>
+          </div>
+        </div>
+      </div>
+    </section>
+<div class="menu-video">
+  <video autoplay muted loop playsinline controls>
+    <source src="images/video.mp4" type="video/mp4">
+    متصفحك لا يدعم تشغيل الفيديو
+  </video>
+</div>
+
+
+
+    <section id="menu" aria-labelledby="menu-title">
+      <div class="section-title">
+        <h2 id="menu-title">قائمة الطعام</h2>
+        <div class="controls" role="toolbar" aria-label="فلاتر القائمة">
+          <div class="chip active" data-filter="all">الكل</div>
+          <div class="chip" data-filter="starters">مقبلات</div>
+          <div class="chip" data-filter="mains">أطباق رئيسية</div>
+          <div class="chip" data-filter="drinks">مشروبات</div>
+          <div class="chip" data-filter="desserts">حلويات</div>
+          <div class="search" aria-label="بحث">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 4a6 6 0 0 1 4.8 9.6l4.3 4.3-1.4 1.4-4.3-4.3A6 6 0 1 1 10 4m0 2a4 4 0 1 0 .001 8.001A4 4 0 0 0 10 6Z"/></svg>
+            <input id="searchInput" type="search" placeholder="ابحثي عن طبق…" aria-label="ابحثي عن طبق">
+          </div>
+        </div>
+      </div>
+
+      <div class="grid" id="menuGrid" role="list">
+        <!-- Cards will be injected by JS -->
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="section-title">
+        <h2 id="contact-title">تواصل معنا</h2>
+      </div>
+      <div class="contact">
+        <form class="panel" id="contactForm" novalidate>
+          <div class="row">
+            <div style="flex:1">
+              <label for="name">الاسم</label>
+              <input id="name" name="name" required placeholder="اسمك الكامل">
+            </div>
+            <div style="flex:1">
+              <label for="phone">رقم الهاتف</label>
+              <input id="phone" name="phone" type="tel" required placeholder="05x-xxxxxxx">
+            </div>
+          </div>
+          <div>
+            <label for="message">رسالتك</label>
+            <textarea id="message" name="message" required placeholder="أخبرينا بما تريدين…"></textarea>
+          </div>
+          <button class="btn gold" style="width:100%; margin-top:10px">إرسال الطلب</button>
+          <small style="color:var(--muted)">سنتواصل خلال ساعات العمل: 10 ص – 11 م</small>
+        </form>
+         <div class="map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.378589985282!2d35.2002!3d31.9522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502e7c8d9b0b1c1%3A0x7e5d1f6c6b0c2d0f!2sPalestine!5e0!3m2!1sar!2s!4v1692110200000!5m2!1sar!2s" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © جميع الحقوق محفوظة – مطعم كاندل 2025
+  </footer>
+
+  <div id="toast" style="position:fixed; inset-inline:0; bottom:18px; display:grid; place-items:center; pointer-events:none; z-index:99"></div>
+
+</body>
+</html>
